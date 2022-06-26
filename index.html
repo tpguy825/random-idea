@@ -40,6 +40,7 @@
             spinner.style.display = "block";
             fetch(url)
                 .then(function(response) {
+                    response.mode = "no-cors";
                     return response.json();
                 })
                 .then(function(data) {
