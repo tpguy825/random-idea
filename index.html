@@ -40,7 +40,7 @@
             spinner.style.display = "block";
             fetch(url, {mode: "no-cors", referrer: ""})
                 .then(function(response) {
-                    return response.json();
+                    response.json();
                 })
                 .then(function(data) {
                     tags.innerHTML = "";
