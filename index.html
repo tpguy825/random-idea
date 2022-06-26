@@ -38,9 +38,8 @@
         function generateidea() {
             title.style.display, tags.style.display, description.style.display, details.style.display = "none";
             spinner.style.display = "block";
-            fetch(url)
+            fetch(url, {mode: "no-cors"})
                 .then(function(response) {
-                    response.mode = "no-cors";
                     return response.json();
                 })
                 .then(function(data) {
