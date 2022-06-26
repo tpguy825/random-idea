@@ -28,7 +28,6 @@
         </div>
     </div>
     <script>
-        var url = "https://what-to-code.com/api/ideas/random";
         var title = document.getElementById("title");
         var description = document.getElementById("description");
         var tags = document.getElementById("tags");
@@ -38,18 +37,19 @@
         function generateidea() {
             title.style.display, tags.style.display, description.style.display, details.style.display = "none";
             spinner.style.display = "block";
-            fetch(url, {mode: "no-cors", referrer: ""})
-                .then(function(response) {
-                    response.text();
-                })
-                .then(function(data) {
-                    alert(data)
-                    return
+            fetch("https://what-to-code.com/api/ideas/random", {mode: "no-cors", referrer: ""}).then(response => {
+                    try {
+                        return response.text();
+                    } catch(e) {
+                        alert("response.text() failed: "+e)
+                    }
+                }).then(data => {
+                    alert("success: "+data)
                     tags.innerHTML = "";
                     title.innerHTML = data.title;
                     description.innerHTML = data.description;
                     data.tags.forEach(element => {
-                        tags.innerHTML += "#" + element.value + " ";
+                        tags.innerHTML = tags.innerHTML + "#" + element.value + " ";
                     });
                     details.innerHTML = "ID: "+data.id + " | Likes: " + data.likes;
                 }).catch(function(e) { alert(e) });
