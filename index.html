@@ -37,11 +37,11 @@
         function generateidea() {
             title.style.display, tags.style.display, description.style.display, details.style.display = "none";
             spinner.style.display = "block";
-            fetch("https://what-to-code.com/api/ideas/random", {mode: "no-cors", referrer: ""}).then(response => {
+            fetch("https://what-to-code.com/api/ideas/random", {mode: "no-cors"}).then(response => {
                     try {
-                        return response.text();
+                        return response.json();
                     } catch(e) {
-                        alert("response.text() failed: "+e)
+                        alert("response.json() failed: "+e)
                     }
                 }).then(data => {
                     alert("success: "+data)
