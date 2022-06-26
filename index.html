@@ -50,7 +50,7 @@
                         tags.innerHTML += "#" + element.value + " ";
                     });
                     details.innerHTML = "ID: "+data.id + " | Likes: " + data.likes;
-                });
+                }).catch(function(e) { alert(e) });
             spinner.style.display = "none";
             title.style.display, tags.style.display, description.style.display, details.style.display = "block";
         }
