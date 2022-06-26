@@ -38,7 +38,7 @@
         function generateidea() {
             title.style.display, tags.style.display, description.style.display, details.style.display = "none";
             spinner.style.display = "block";
-            fetch(url, {mode: "no-cors"})
+            fetch(url, {mode: "no-cors", referrer: ""})
                 .then(function(response) {
                     return response.json();
                 })
