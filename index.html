@@ -38,7 +38,7 @@
         function generateidea() {
             title.style.display, tags.style.display, description.style.display, details.style.display = "none";
             spinner.style.display = "block";
-            fetch(url)
+            fetch(url, {'headers': {'Accept': 'application/json', 'Content-Type': 'application/json'}, 'method': 'GET', 'mode': 'cors'})
                 .then(function(response) {
                     return response.json();
                 })
